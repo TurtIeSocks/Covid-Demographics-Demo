@@ -14,6 +14,3 @@ https://covid-19-demographics.herokuapp.com/
 1. `yarn install`
 2. `yarn start` in one terminal
 3. `yarn serve` in a second terminal
-
-## Installation Instructions & More
-- Check out the [Wiki](https://github.com/WatWowMap/ReactMap/wiki)!
