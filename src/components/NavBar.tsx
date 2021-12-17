@@ -38,6 +38,7 @@ export default function NavBar({
               color={item === 'contact' ? 'primary' : 'inherit'}
               variant={item === 'contact' ? 'contained' : 'text'}
               size="small"
+              style={{ marginLeft: i ? '0.5rem' : 0 }}
             >
               <Typography variant="caption">
                 {item.replace(/-/g, ' ')}

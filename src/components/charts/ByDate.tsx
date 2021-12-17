@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
+import { Typography } from '@mui/material'
 
 import { DataChartProps } from '@assets/types'
 
@@ -42,29 +43,39 @@ export default function Summary({
   const formatter = (value: number) => localeFormat.format(value)
 
   return (
-    <ResponsiveContainer>
-      <LineChart
-        data={finalTotals}
-        margin={{
-          right: isMobile ? 0 : 30,
-          left: isMobile ? 40 : 50,
-          bottom: isMobile ? 0 : 5,
-        }}
+    <>
+      <Typography
+        variant="h5"
+        align="center"
+        style={{ color: 'white' }}
+        gutterBottom={!isMobile}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis tickFormatter={formatter} />
-        <Tooltip formatter={formatter} />
-        <Legend />
-        <Line type="monotone" dataKey="White" stroke="#64b5f6" />
-        <Line type="monotone" dataKey="Black" stroke="#4dd0e1" />
-        <Line type="monotone" dataKey="Latinx" stroke="#aed581" />
-        <Line type="monotone" dataKey="Asian" stroke="#f06292" />
-        <Line type="monotone" dataKey="AIAN" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="NHPI" stroke="#ba68c8" />
-        <Line type="monotone" dataKey="Multiracial" stroke="#ff8a65" />
-        <Line type="monotone" dataKey="Other" stroke="#fff176" />
-      </LineChart>
-    </ResponsiveContainer>
+        # of Cases Over Time
+      </Typography>
+      <ResponsiveContainer>
+        <LineChart
+          data={finalTotals}
+          margin={{
+            right: isMobile ? 0 : 30,
+            left: isMobile ? 40 : 50,
+            bottom: isMobile ? 0 : 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis tickFormatter={formatter} />
+          <Tooltip formatter={formatter} />
+          <Legend />
+          <Line type="monotone" dataKey="White" stroke="#64b5f6" />
+          <Line type="monotone" dataKey="Black" stroke="#4dd0e1" />
+          <Line type="monotone" dataKey="Latinx" stroke="#aed581" />
+          <Line type="monotone" dataKey="Asian" stroke="#f06292" />
+          <Line type="monotone" dataKey="AIAN" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="NHPI" stroke="#ba68c8" />
+          <Line type="monotone" dataKey="Multiracial" stroke="#ff8a65" />
+          <Line type="monotone" dataKey="Other" stroke="#fff176" />
+        </LineChart>
+      </ResponsiveContainer>
+    </>
   )
 }

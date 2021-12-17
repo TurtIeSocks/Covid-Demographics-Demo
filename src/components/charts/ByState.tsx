@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
+import { Typography } from '@mui/material'
 
 import { DataChartProps } from '@assets/types'
 
@@ -44,29 +45,39 @@ export default function Summary({
   const formatter = (value: number) => localeFormat.format(value)
 
   return (
-    <ResponsiveContainer>
-      <BarChart
-        data={finalTotals}
-        margin={{
-          right: isMobile ? 0 : 30,
-          left: isMobile ? 40 : 50,
-          bottom: isMobile ? 0 : 5,
-        }}
+    <>
+      <Typography
+        variant="h5"
+        align="center"
+        style={{ color: 'white' }}
+        gutterBottom={!isMobile}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="state" />
-        <YAxis tickFormatter={formatter} />
-        <Tooltip formatter={formatter} />
-        <Legend />
-        <Bar dataKey="White" stackId="a" fill="#64b5f6" />
-        <Bar dataKey="Black" stackId="a" fill="#4dd0e1" />
-        <Bar dataKey="Latinx" stackId="a" fill="#aed581" />
-        <Bar dataKey="Asian" stackId="a" fill="#f06292" />
-        <Bar dataKey="AIAN" stackId="a" fill="#82ca9d" />
-        <Bar dataKey="NHPI" stackId="a" fill="#ba68c8" />
-        <Bar dataKey="Multiracial" stackId="a" fill="#ff8a65" />
-        <Bar dataKey="Other" stackId="a" fill="#fff176" />
-      </BarChart>
-    </ResponsiveContainer>
+        Demographics by State
+      </Typography>
+      <ResponsiveContainer>
+        <BarChart
+          data={finalTotals}
+          margin={{
+            right: isMobile ? 0 : 30,
+            left: isMobile ? 40 : 50,
+            bottom: isMobile ? 0 : 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="state" />
+          <YAxis tickFormatter={formatter} />
+          <Tooltip formatter={formatter} />
+          <Legend />
+          <Bar dataKey="White" stackId="a" fill="#64b5f6" />
+          <Bar dataKey="Black" stackId="a" fill="#4dd0e1" />
+          <Bar dataKey="Latinx" stackId="a" fill="#aed581" />
+          <Bar dataKey="Asian" stackId="a" fill="#f06292" />
+          <Bar dataKey="AIAN" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="NHPI" stackId="a" fill="#ba68c8" />
+          <Bar dataKey="Multiracial" stackId="a" fill="#ff8a65" />
+          <Bar dataKey="Other" stackId="a" fill="#fff176" />
+        </BarChart>
+      </ResponsiveContainer>
+    </>
   )
 }
