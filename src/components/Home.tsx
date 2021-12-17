@@ -13,6 +13,7 @@ export interface HomeProps {
   data: Data[]
   covidData: Covid19
   showGraphs: boolean
+  isMobile: boolean
   setShowGraphs: (showGraphs: boolean) => void
 }
 
@@ -20,6 +21,7 @@ export default function Home({
   data,
   covidData,
   showGraphs,
+  isMobile,
   setShowGraphs,
 }: HomeProps): ReactElement {
   const [tab, setTab] = useState('Summary')
@@ -91,6 +93,7 @@ export default function Home({
                 subTab.name as 'cases' | 'tests' | 'hospitalized' | 'deaths'
               }
               data={data}
+              isMobile={isMobile}
             />
           </Grid>
         ) : (
@@ -102,7 +105,8 @@ export default function Home({
               xs={11}
               sm={7}
               md={5}
-              lg={3}
+              lg={4}
+              xl={3}
               sx={{
                 backgroundColor: 'rgba(0,0,0,0.75)',
                 backgroundPosition: 'center',
@@ -157,7 +161,13 @@ export default function Home({
           </>
         )}
       </Grid>
-      {showGraphs && <FloatingNav subTab={subTab} setSubTab={setSubTab} />}
+      {showGraphs && (
+        <FloatingNav
+          isMobile={isMobile}
+          subTab={subTab}
+          setSubTab={setSubTab}
+        />
+      )}
     </Paper>
   )
 }

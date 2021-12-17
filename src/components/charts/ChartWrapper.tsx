@@ -11,13 +11,20 @@ export default function DataChart({
   data,
   tab,
   subTab,
+  isMobile,
 }: DataChartProps): ReactElement {
   return (
     <div style={{ height: '65vh', width: '100%' }}>
       {{
-        Summary: <Summary data={data} tab={tab} subTab={subTab} />,
-        'By Date': <ByDate data={data} tab={tab} subTab={subTab} />,
-        'By State': <ByState data={data} tab={tab} subTab={subTab} />,
+        Summary: (
+          <Summary data={data} tab={tab} subTab={subTab} isMobile={isMobile} />
+        ),
+        'By Date': (
+          <ByDate data={data} tab={tab} subTab={subTab} isMobile={isMobile} />
+        ),
+        'By State': (
+          <ByState data={data} tab={tab} subTab={subTab} isMobile={isMobile} />
+        ),
       }[tab] || <div />}
     </div>
   )
