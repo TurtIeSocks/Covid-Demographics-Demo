@@ -41,15 +41,10 @@ export default function Summary({
   const formatter = (value: number) => localeFormat.format(value)
 
   return (
-    <ResponsiveContainer
-      width="100%"
-      height={600}
-      style={{ textAlign: 'center' }}
-    >
+    <ResponsiveContainer>
       <LineChart
         data={finalTotals}
         margin={{
-          top: 5,
           right: 30,
           left: 50,
           bottom: 5,
