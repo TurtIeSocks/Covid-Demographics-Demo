@@ -102,6 +102,7 @@ export default function Home({
               xs={11}
               sm={7}
               md={5}
+              lg={3}
               sx={{
                 backgroundColor: 'rgba(0,0,0,0.75)',
                 backgroundPosition: 'center',

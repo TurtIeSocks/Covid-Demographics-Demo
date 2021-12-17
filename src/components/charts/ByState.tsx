@@ -43,15 +43,10 @@ export default function Summary({
   const formatter = (value: number) => localeFormat.format(value)
 
   return (
-    <ResponsiveContainer
-      width="100%"
-      height={600}
-      style={{ textAlign: 'center' }}
-    >
+    <ResponsiveContainer>
       <BarChart
         data={finalTotals}
         margin={{
-          top: 20,
           right: 30,
           left: 50,
           bottom: 5,

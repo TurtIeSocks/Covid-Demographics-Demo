@@ -25,7 +25,7 @@ export default function Download({ data }: DownloadProps): ReactElement {
   }
 
   return (
-    <Button onClick={exportSettings} color="primary" variant="contained">
+    <Button onClick={exportSettings} color="primary" variant="contained" size="small">
       Download Data
     </Button>
   )
