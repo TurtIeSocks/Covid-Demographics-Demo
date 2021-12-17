@@ -47,7 +47,7 @@ export default function Summary({
         style={{ color: 'white' }}
         gutterBottom={!isMobile}
       >
-        Total Cases in the United States
+        Total in the United States
       </Typography>
       <ResponsiveContainer style={{ marginTop: 'auto', marginBottom: 'auto' }}>
         <BarChart

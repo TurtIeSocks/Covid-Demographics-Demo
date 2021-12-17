@@ -50,7 +50,7 @@ export default function Summary({
         style={{ color: 'white' }}
         gutterBottom={!isMobile}
       >
-        # of Cases Over Time
+        Stats Over Time
       </Typography>
       <ResponsiveContainer>
         <LineChart
