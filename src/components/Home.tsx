@@ -28,11 +28,11 @@ export default function Home({
   const [subTab, setSubTab] = useState({ index: 0, name: 'cases' })
   const items = ['Summary', 'By Date', 'By State', 'Raw Data']
   const covidIterable = [
-    { title: 'Total Cases', nums: covidData.cases },
-    { title: 'Cases Today', nums: covidData.todayCases },
-    { title: 'Total Deaths', nums: covidData.deaths },
-    { title: 'Deaths Today', nums: covidData.todayDeaths },
-    { title: 'Total Tests', nums: covidData.totalTests },
+    { title: 'Total Cases', nums: covidData.cases || 0 },
+    { title: 'Cases Today', nums: covidData.todayCases || 0 },
+    { title: 'Total Deaths', nums: covidData.deaths || 0 },
+    { title: 'Deaths Today', nums: covidData.todayDeaths || 0 },
+    { title: 'Total Tests', nums: covidData.totalTests || 0 },
   ]
   const Formatter = new Intl.NumberFormat('en-US')
 
