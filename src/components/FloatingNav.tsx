@@ -16,11 +16,13 @@ export interface SubTab {
 export interface FloatingNavProps {
   subTab: SubTab
   setSubTab: Dispatch<SetStateAction<SubTab>>
+  isMobile: boolean
 }
 
 export default function FloatingNav({
   subTab,
   setSubTab,
+  isMobile,
 }: FloatingNavProps): ReactElement {
   const items = [
     { text: 'Cases', Icon: CoronavirusOutlined },
@@ -36,11 +38,11 @@ export default function FloatingNav({
         backgroundColor: 'black',
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
-        borderBottomLeftRadius: 3,
-        borderBottomRightRadius: 3,
-        width: '60%',
+        borderBottomLeftRadius: isMobile ? 0 : 3,
+        borderBottomRightRadius: isMobile ? 0 : 3,
+        width: isMobile ? '100%' : '60%',
         position: 'absolute',
-        bottom: 10,
+        bottom: isMobile ? 0 : 10,
         left: 0,
         right: 0,
         margin: 'auto',
@@ -48,7 +50,7 @@ export default function FloatingNav({
     >
       <Tabs
         value={subTab.index}
-        onChange={(e, v) => setSubTab({ index: v, name: items[v].text.toLowerCase() })}
+        onChange={(_, v) => setSubTab({ index: v, name: items[v].text.toLowerCase() })}
         indicatorColor="primary"
         variant="fullWidth"
       >
@@ -56,8 +58,7 @@ export default function FloatingNav({
           <Tab
             key={text}
             label={text}
-            icon={<Icon fontSize="large" color="secondary" />}
-            style={{ width: 40, minWidth: 40 }}
+            icon={<Icon fontSize={isMobile ? 'small' : 'large'} color="secondary" />}
           />
         ))}
       </Tabs>

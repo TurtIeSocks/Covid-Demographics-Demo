@@ -16,6 +16,7 @@ import { DataChartProps } from '@assets/types'
 export default function Summary({
   data,
   subTab,
+  isMobile,
 }: DataChartProps): ReactElement {
   const totals: { [key: string]: { [key: string]: number } } = {}
 
@@ -45,9 +46,9 @@ export default function Summary({
       <LineChart
         data={finalTotals}
         margin={{
-          right: 30,
-          left: 50,
-          bottom: 5,
+          right: isMobile ? 0 : 30,
+          left: isMobile ? 40 : 50,
+          bottom: isMobile ? 0 : 5,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />

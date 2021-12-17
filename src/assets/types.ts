@@ -37,5 +37,6 @@ export interface Covid19 {
 export interface DataChartProps {
   data: Data[]
   tab: string
+  isMobile: boolean
   subTab: 'cases' | 'deaths' | 'hospitalized' | 'tests'
 }

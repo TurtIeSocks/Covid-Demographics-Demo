@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect, ReactElement } from 'react'
-import { ThemeProvider } from '@mui/material'
+import { ThemeProvider, useMediaQuery } from '@mui/material'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import '@assets/main.scss'
@@ -16,10 +16,10 @@ export default function App(): ReactElement {
   const [data, setData] = useState<Data[]>([])
   const [covidData, setCovidData] = useState<Covid19>({})
   const [showGraphs, setShowGraphs] = useState(false)
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
   const items = [
     'home',
-    'locations',
     'blog',
     'sign-in',
     'register',
@@ -46,6 +46,7 @@ export default function App(): ReactElement {
                 covidData={covidData}
                 showGraphs={showGraphs}
                 setShowGraphs={setShowGraphs}
+                isMobile={isMobile}
               />
             )}
           />
