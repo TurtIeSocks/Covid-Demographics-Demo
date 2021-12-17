@@ -45,7 +45,7 @@ export default function Home({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         height: '85vh',
-        width: '99vw',
+        width: '100%',
       }}
     >
       <Grid
@@ -86,7 +86,7 @@ export default function Home({
             </Grid>
           ))}
         {showGraphs ? (
-          <Grid item xs={10} sx={{ paddingTop: 7, textAlign: 'center' }}>
+          <Grid item xs={10} sx={{ paddingTop: isMobile ? 2 : 5, textAlign: 'center' }}>
             <DataChart
               tab={tab}
               subTab={

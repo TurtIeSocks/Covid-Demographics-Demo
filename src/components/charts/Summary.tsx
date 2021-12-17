@@ -9,7 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { useTheme } from '@mui/material'
+import { useTheme, Typography } from '@mui/material'
 
 import { RacialGroups, DataChartProps } from '@assets/types'
 
@@ -40,21 +40,31 @@ export default function Summary({
   const formatter = (value: number) => localeFormat.format(value)
 
   return (
-    <ResponsiveContainer style={{ marginTop: 'auto', marginBottom: 'auto' }}>
-      <BarChart
-        data={totals}
-        margin={{
-          right: isMobile ? 0 : 30,
-          left: isMobile ? 40 : 50,
-          bottom: isMobile ? 0 : 5,
-        }}
+    <>
+      <Typography
+        variant="h5"
+        align="center"
+        style={{ color: 'white' }}
+        gutterBottom={!isMobile}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis tickFormatter={formatter} />
-        <Tooltip formatter={formatter} />
-        <Bar dataKey="Total" fill={theme.palette.secondary.main} />
-      </BarChart>
-    </ResponsiveContainer>
+        Total Cases in the United States
+      </Typography>
+      <ResponsiveContainer style={{ marginTop: 'auto', marginBottom: 'auto' }}>
+        <BarChart
+          data={totals}
+          margin={{
+            right: isMobile ? 0 : 30,
+            left: isMobile ? 40 : 50,
+            bottom: isMobile ? 0 : 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis tickFormatter={formatter} />
+          <Tooltip formatter={formatter} />
+          <Bar dataKey="Total" fill={theme.palette.secondary.main} />
+        </BarChart>
+      </ResponsiveContainer>
+    </>
   )
 }

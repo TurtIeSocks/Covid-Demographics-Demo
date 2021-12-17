@@ -14,7 +14,7 @@ export default function DataChart({
   isMobile,
 }: DataChartProps): ReactElement {
   return (
-    <div style={{ height: '65vh', width: '100%' }}>
+    <div style={{ height: isMobile ? '55vh' : '65vh', width: '100%' }}>
       {{
         Summary: (
           <Summary data={data} tab={tab} subTab={subTab} isMobile={isMobile} />
