@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ReactElement, Dispatch, SetStateAction } from 'react'
-import { AppBar, Tab, Tabs } from '@mui/material'
+import { AppBar, Tab, Tabs, Typography } from '@mui/material'
 import {
   LocalHospitalOutlined,
   CoronavirusOutlined,
@@ -57,7 +57,7 @@ export default function FloatingNav({
         {items.map(({ text, Icon }) => (
           <Tab
             key={text}
-            label={text}
+            label={<Typography variant={isMobile ? 'caption' : 'subtitle2'}>{text}</Typography>}
             icon={<Icon fontSize={isMobile ? 'small' : 'large'} color="secondary" />}
           />
         ))}
